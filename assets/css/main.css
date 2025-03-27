@@ -1,5 +1,5 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 /* Base Styles */
@@ -50,7 +50,7 @@ input, textarea, select {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     line-height: var(--line-height-tight);
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-lg);
@@ -106,7 +106,7 @@ p {
 }
 
 .section-subtitle {
-    font-family: var(--font-script);
+    font-family: var(--font-primary); 
     font-size: var(--font-size-xl);
     color: var(--primary-pink);
     margin-bottom: var(--spacing-xs);

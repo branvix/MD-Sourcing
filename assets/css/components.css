@@ -125,8 +125,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 30% 50%, rgba(156, 39, 176, 0.3), transparent 70%),
-                radial-gradient(circle at 70% 50%, rgba(255, 0, 255, 0.2), transparent 70%);
+    background: radial-gradient(circle at 75% 25%, rgba(156, 39, 176, 0.15), transparent 75%);
     z-index: 0;
 }
 
@@ -151,7 +150,7 @@
 .hero-title-accent {
     display: block;
     color: var(--primary-purple);
-    font-family: var(--font-script);
+    font-family: var(--font-primary); 
     font-size: 2.2rem;
     text-transform: none;
     margin-bottom: 0.5rem;
