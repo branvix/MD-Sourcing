@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | MD Shopping Assistant</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logo-text-container">
+                        <div class="logo-main">MD</div>
+                        <div class="logo-script">Shopping Assistant</div>
+                        <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="bg-element bg-element-1"></div>
+        <div class="container">
+            <div class="banner-content">
+                <div class="section-subtitle">What We Source</div>
+                <h1>Product Categories</h1>
+                <p>We source a wide range of high-quality products across various industries</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Intro -->
+    <section class="products-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Premium Sourcing Across Multiple Industries</h2>
+                <p>At MD Sourcing, we specialize in procuring high-quality products from trusted manufacturers across China, Thailand, and Indonesia. Our extensive network and industry expertise allow us to source a diverse range of products that meet international standards and competitive pricing.</p>
+                <p>Whether you're looking for fashion items, home goods, electronics, or specialized industrial products, our team can connect you with the right suppliers and manage the entire sourcing process for a seamless experience.</p>
+                
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="feature-text">Quality Assured</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-text">Certified Suppliers</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="feature-text">Competitive Pricing</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-text">Customization Options</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories-main">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Expertise</div>
+                <h2>Product Categories</h2>
+                <p>Explore the diverse range of products we can source for your business</p>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">All Categories</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="home">Home & Living</button>
+                <button class="filter-btn" data-filter="beauty">Beauty</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+            </div>
+            
+            <!-- Categories Grid -->
+            <div class="categories-grid">
+                <!-- Fashion & Apparel -->
+                <div class="category-card" data-category="fashion">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Fashion & Apparel">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Fashion & Apparel</h3>
+                        <p class="category-description">Premium clothing, footwear, accessories, and textiles from top manufacturers in Asia.</p>
+                        <a href="#fashion-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Home & Living -->
+                <div class="category-card" data-category="home">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Home & Living">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Home & Living</h3>
+                        <p class="category-description">Furniture, decor, kitchenware, and household items with quality assurance.</p>
+                        <a href="#home-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Beauty & Cosmetics -->
+                <div class="category-card" data-category="beauty">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Beauty & Cosmetics">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Beauty & Cosmetics</h3>
+                        <p class="category-description">Skincare, makeup, and personal care products from trusted manufacturers.</p>
+                        <a href="#beauty-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Electronics -->
+                <div class="category-card" data-category="electronics">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Electronics">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Electronics</h3>
+                        <p class="category-description">Consumer electronics, components, and accessories from certified suppliers.</p>
+                        <a href="#electronics-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Food & Beverage -->
+                <div class="category-card" data-category="food">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Food & Beverage">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Food & Beverage</h3>
+                        <p class="category-description">Quality food products, beverages, and ingredients with proper certifications.</p>
+                        <a href="#food-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Industrial & Manufacturing -->
+                <div class="category-card" data-category="industrial">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Industrial & Manufacturing">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Industrial & Manufacturing</h3>
+                        <p class="category-description">Machinery, tools, parts, and industrial supplies for manufacturing needs.</p>
+                        <a href="#industrial-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Health & Wellness -->
+                <div class="category-card" data-category="health">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Health & Wellness">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Health & Wellness</h3>
+                        <p class="category-description">Fitness equipment, supplements, and health products from reputable sources.</p>
+                        <a href="#health-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Toys & Games -->
+                <div class="category-card" data-category="toys">
+                    <div class="category-image">
+                        <img src="/api/placeholder/600/600" alt="Toys & Games">
+                    </div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Toys & Games</h3>
+                        <p class="category-description">Children's toys, games, and educational products that meet safety standards.</p>
+                        <a href="#toys-modal" class="category-link modal-trigger">Explore More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Products -->
+    <section class="custom-products">
+        <div class="container">
+            <div class="custom-products-grid">
+                <div class="custom-products-image reveal-left">
+                    <img src="/api/placeholder/600/500" alt="Custom Products">
+                    <div class="image-decoration"></div>
+                </div>
+                
+                <div class="custom-products-content reveal-right">
+                    <div class="section-subtitle" style="text-align: left;">Tailored Solutions</div>
+                    <h2 style="text-align: left;">Custom Product Development</h2>
+                    
+                    <p>Beyond our standard product categories, we specialize in custom product development to bring your unique vision to life. Our team works closely with manufacturers to create bespoke products tailored to your specific requirements.</p>
+                    
+                    <div class="custom-features">
+                        <div class="custom-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Design Support</h3>
+                                <p>Our team can help refine your product concept and create specifications that optimize manufacturing efficiency.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Prototype Development</h3>
+                                <p>We coordinate the creation of product samples and prototypes for your review before mass production.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Manufacturing Expertise</h3>
+                                <p>We identify the right manufacturing partners with the capabilities to produce your custom products to specification.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Private Labeling</h3>
+                                <p>Transform existing products with your branding, packaging, and customizations for a unique market presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn">Discuss Your Custom Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOQ Section -->
+    <section class="moq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Order Requirements</div>
+                <h2>Minimum Order Quantities</h2>
+                <p>Understanding MOQs across different product categories</p>
+            </div>
+            
+            <div class="moq-table-container reveal">
+                <table class="moq-table">
+                    <thead>
+                        <tr>
+                            <th>Product Category</th>
+                            <th>Standard MOQ</th>
+                            <th>Small Order Options</th>
+                            <th>Lead Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fashion & Apparel</td>
+                            <td>300-500 pieces per style/color</td>
+                            <td>Mixed orders available</td>
+                            <td>30-45 days</td>
+                        </tr>
+                        <tr>
+                            <td>Home & Living</td>
+                            <td>200-300 pieces per item</td>
+                            <td>Available for select items</td>
+                            <td>40-60 days</td>
+                        </tr>
+                        <tr>
+                            <td>Beauty & Cosmetics</td>
+                            <td>1,000-5,000 pieces per SKU</td>
+                            <td>Limited availability</td>
+                            <td>30-60 days</td>
+                        </tr>
+                        <tr>
+                            <td>Electronics</td>
+                            <td>500-1,000 pieces per model</td>
+                            <td>Available for select items</td>
+                            <td>45-75 days</td>
+                        </tr>
+                        <tr>
+                            <td>Industrial Products</td>
+                            <td>Varies by product type</td>
+                            <td>Case-by-case basis</td>
+                            <td>60-90 days</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Products</td>
+                            <td>500-1,000 pieces typically</td>
+                            <td>Negotiable with higher unit price</td>
+                            <td>60-90 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="moq-note">
+                <p>Note: MOQs vary by supplier and specific product. We work with you to find solutions that match your volume requirements, including mixed orders and supplier negotiation for smaller quantities when possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Control -->
+    <section class="quality-control">
+        <div class="container">
+            <div class="quality-grid">
+                <div class="quality-content reveal-left">
+                    <div class="section-subtitle" style="text-align: left;">Quality Assurance</div>
+                    <h2 style="text-align: left;">Our Quality Control Process</h2>
+                    
+                    <p>We implement a comprehensive quality control system to ensure that all products meet your specifications and standards. Our quality assurance process includes multiple inspection points throughout the production cycle.</p>
+                    
+                    <div class="quality-steps">
+                        <div class="quality-step">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h3>Supplier Verification</h3>
+                                <p>We thoroughly vet potential suppliers, reviewing their certifications, production capabilities, and quality management systems.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-step">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h3>Pre-Production Inspection</h3>
+                                <p>We verify raw materials and components before production begins to prevent quality issues downstream.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-step">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h3>During Production Inspection</h3>
+                                <p>Our quality controllers conduct random inspections during the manufacturing process to identify and address issues early.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-step">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <h3>Pre-Shipment Inspection</h3>
+                                <p>A final comprehensive inspection is performed on finished products before they leave the factory, following AQL standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quality-image reveal-right">
+                    <img src="/api/placeholder/600/500" alt="Quality Control">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Got Questions?</div>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our products and sourcing process</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Can you help with product customization?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we specialize in custom product development and can help modify existing products or create entirely new ones based on your specifications. Our team works closely with manufacturers to bring your vision to life, from concept refinement to prototype development and mass production.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">How do you ensure product quality?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We implement a rigorous quality control process that includes supplier verification, pre-production inspections, during-production inspections, and pre-shipment inspections. Our quality control team follows industry standards and your specific requirements to ensure products meet all specifications before shipping.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What are your typical lead times?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Lead times vary depending on the product category, complexity, and order volume. Generally, standard products take 30-60 days for production after order confirmation, while custom products may require 60-90 days. Shipping time is additional and depends on the destination and shipping method chosen.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Can you source products not listed in your categories?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely! While we've listed our most common product categories, our sourcing capabilities extend beyond these areas. If you're looking for products not specifically mentioned on our website, please contact us with your requirements, and we'll leverage our extensive network to find suitable suppliers for your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Source Quality Products?</h2>
+                <p>Contact us today to discuss your product needs and discover how we can help you find the perfect suppliers.</p>
+                <a href="contact.html" class="btn btn-lg">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Modals -->
+    <!-- Fashion Modal -->
+    <div id="fashion-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h2>Fashion & Apparel</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="/api/placeholder/800/400" alt="Fashion & Apparel">
+                </div>
+                <div class="modal-description">
+                    <p>Our fashion and apparel sourcing services connect you with premium manufacturers across Asia who specialize in producing high-quality clothing, footwear, accessories, and textiles.</p>
+                    
+                    <h3>Products We Source:</h3>
+                    <div class="product-list">
+                        <div class="product-column">
+                            <ul>
+                                <li>Women's apparel</li>
+                                <li>Men's clothing</li>
+                                <li>Children's wear</li>
+                                <li>Activewear & sportswear</li>
+                                <li>Underwear & lingerie</li>
+                            </ul>
+                        </div>
+                        <div class="product-column">
+                            <ul>
+                                <li>Footwear & shoes</li>
+                                <li>Handbags & wallets</li>
+                                <li>Jewelry & accessories</li>
+                                <li>Scarves & hats</li>
+                                <li>Textiles & fabrics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>Customization Options:</h3>
+                    <p>We offer extensive customization options including private labeling, custom designs, material selection, color variations, packaging, and branding solutions tailored to your specific requirements.</p>
+                    
+                    <h3>Quality Standards:</h3>
+                    <p>Our fashion suppliers meet international quality standards and can provide various certifications including OEKO-TEX, BSCI, GOTS, and more depending on your specific needs.</p>
+                    
+                    <a href="contact.html" class="btn">Request Fashion Sourcing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <div class="logo-text-container">
+                                <div class="logo-main">MD</div>
+                                <div class="logo-script">Shopping Assistant</div>
+                                <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                            </div>
+                        </div>
+                        <p>Your trusted sourcing partner, providing seamless procurement solutions from China, Thailand, and Indonesia. We connect businesses with quality manufacturers to help you grow globally.</p>
+                        
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                            <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                            <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                            <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4 class="footer-heading">Contact Us</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>57/30 Petchaburi Soi 17, Bangkok, Thailand</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+1234567890">+123-456-7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:hello@mdsourcing.com">hello@mdsourcing.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4 class="footer-heading">Newsletter</h4>
+                        <p>Subscribe to our newsletter for the latest industry insights and sourcing tips.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 MD Sourcing Company. All Rights Reserved. | Designed by <a href="#">MD Design</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Quote Form -->
+    <div class="quick-quote">
+        <button class="quick-quote-btn">
+            <i class="fas fa-file-invoice"></i> Request a Quote
+        </button>
+        <div class="quick-quote-form">
+            <h3>Quick Quote Request</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Product Details" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Additional Information" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Live Chat / WhatsApp -->
+    <div class="live-chat">
+        <a href="#" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/filter.js"></script>
+</body>
+</html>
