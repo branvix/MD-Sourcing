@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | MD Shopping Assistant</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    
+    <style>
+        /* Additional styles for blog page */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blog-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+        
+        .blog-card-large {
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+        
+        .blog-card-large:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-card-large .blog-image {
+            height: 400px;
+            position: relative;
+        }
+        
+        .blog-card-large .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-card-large .blog-content {
+            padding: 2.5rem;
+        }
+        
+        .blog-card-large .blog-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-meta i {
+            color: var(--primary-rose);
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        
+        .blog-card-regular {
+            display: grid;
+            grid-template-columns: 1.2fr 1.8fr;
+            gap: 1.5rem;
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+        
+        .blog-card-regular:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-card-regular .blog-image {
+            height: 100%;
+            min-height: 200px;
+            position: relative;
+        }
+        
+        .blog-card-regular .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-card-regular .blog-content {
+            padding: 1.5rem 1.5rem 1.5rem 0;
+        }
+        
+        .blog-card-regular .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: var(--primary-rose-light);
+            color: var(--primary-rose-dark);
+            padding: 0.4rem 1rem;
+            border-radius: var(--border-radius-full);
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 1rem;
+        }
+        
+        .blog-date {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-rose);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-full);
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+            z-index: 1;
+        }
+        
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        
+        .sidebar-box {
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-rose);
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: none;
+            border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+            font-size: 0.9rem;
+        }
+        
+        .search-btn {
+            background: var(--gradient-button);
+            color: white;
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            cursor: pointer;
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 0.8rem;
+        }
+        
+        .category-list li:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-text);
+            transition: var(--transition-normal);
+        }
+        
+        .category-list a:hover {
+            color: var(--primary-rose);
+        }
+        
+        .category-count {
+            background-color: var(--primary-rose-light);
+            color: var(--primary-rose-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--border-radius-full);
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .recent-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .recent-post:last-child {
+            margin-bottom: 0;
+        }
+        
+        .recent-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .recent-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .recent-post-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .recent-post-content h4 a {
+            color: var(--color-text);
+            transition: var(--transition-normal);
+        }
+        
+        .recent-post-content h4 a:hover {
+            color: var(--primary-rose);
+        }
+        
+        .recent-post-meta {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background-color: var(--color-background);
+            padding: 0.4rem 1rem;
+            border-radius: var(--border-radius-full);
+            font-size: 0.8rem;
+            color: var(--color-text);
+            transition: var(--transition-normal);
+        }
+        
+        .tag:hover {
+            background-color: var(--primary-rose);
+            color: white;
+        }
+        
+        .newsletter-sidebar input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius-md);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+        
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background-color: var(--primary-rose);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .pagination-prev,
+        .pagination-next {
+            width: auto;
+            padding: 0 1rem;
+            border-radius: var(--border-radius-full);
+        }
+        
+        .pagination-prev i,
+        .pagination-next i {
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-card-regular {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-card-regular .blog-image {
+                height: 250px;
+            }
+            
+            .blog-card-regular .blog-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logo-text-container">
+                        <div class="logo-main">MD</div>
+                        <div class="logo-script">Shopping Assistant</div>
+                        <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="bg-element bg-element-1"></div>
+        <div class="container">
+            <div class="banner-content">
+                <div class="section-subtitle">Latest Insights</div>
+                <h1>Industry News & Tips</h1>
+                <p>Stay updated with the latest trends, insights, and sourcing strategies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Main Section -->
+    <section class="blog-main-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Main Content -->
+                <div class="blog-content-area">
+                    <!-- Featured Post -->
+                    <div class="blog-card-large reveal">
+                        <div class="blog-image">
+                            <img src="/api/placeholder/800/400" alt="Supply Chain Challenges">
+                            <div class="blog-date">Mar 15, 2025</div>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">Supply Chain</span>
+                            <h2 class="blog-title">Navigating Supply Chain Challenges in 2025</h2>
+                            <div class="blog-meta">
+                                <span><i class="fas fa-user"></i> By Admin</span>
+                                <span><i class="fas fa-comments"></i> 12 Comments</span>
+                                <span><i class="fas fa-eye"></i> 234 Views</span>
+                            </div>
+                            <p class="blog-excerpt">Learn how businesses are adapting to the evolving supply chain landscape and implementing strategic solutions to overcome challenges. The global supply chain continues to face disruptions from various factors, and companies are developing innovative approaches to ensure business continuity.</p>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Regular Posts -->
+                    <div class="blog-main">
+                        <div class="blog-card-regular reveal">
+                            <div class="blog-image">
+                                <img src="/api/placeholder/400/300" alt="Manufacturing Trends">
+                                <div class="blog-date">Mar 10, 2025</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Manufacturing</span>
+                                <h3 class="blog-title">Emerging Manufacturing Trends in Thailand</h3>
+                                <div class="blog-meta">
+                                    <span><i class="fas fa-user"></i> By Admin</span>
+                                    <span><i class="fas fa-comments"></i> 8 Comments</span>
+                                </div>
+                                <p class="blog-excerpt">Discover why Thailand is becoming a preferred manufacturing hub for global businesses seeking quality and value in their supply chains.</p>
+                                <a href="#" class="btn btn-sm">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card-regular reveal">
+                            <div class="blog-image">
+                                <img src="/api/placeholder/400/300" alt="Quality Control">
+                                <div class="blog-date">Mar 5, 2025</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Quality Control</span>
+                                <h3 class="blog-title">Quality Control Best Practices for Importers</h3>
+                                <div class="blog-meta">
+                                    <span><i class="fas fa-user"></i> By Admin</span>
+                                    <span><i class="fas fa-comments"></i> 15 Comments</span>
+                                </div>
+                                <p class="blog-excerpt">Essential quality control measures every importer should implement to ensure product standards are met consistently and efficiently.</p>
+                                <a href="#" class="btn btn-sm">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card-regular reveal">
+                            <div class="blog-image">
+                                <img src="/api/placeholder/400/300" alt="Sustainable Sourcing">
+                                <div class="blog-date">Feb 28, 2025</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Sustainability</span>
+                                <h3 class="blog-title">Sustainable Sourcing: A Competitive Advantage</h3>
+                                <div class="blog-meta">
+                                    <span><i class="fas fa-user"></i> By Admin</span>
+                                    <span><i class="fas fa-comments"></i> 10 Comments</span>
+                                </div>
+                                <p class="blog-excerpt">How implementing sustainable sourcing practices can improve your brand reputation, reduce costs, and meet growing consumer demand.</p>
+                                <a href="#" class="btn btn-sm">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card-regular reveal">
+                            <div class="blog-image">
+                                <img src="/api/placeholder/400/300" alt="Shipping Logistics">
+                                <div class="blog-date">Feb 20, 2025</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Logistics</span>
+                                <h3 class="blog-title">Optimizing Shipping Costs: Strategies for Small Businesses</h3>
+                                <div class="blog-meta">
+                                    <span><i class="fas fa-user"></i> By Admin</span>
+                                    <span><i class="fas fa-comments"></i> 7 Comments</span>
+                                </div>
+                                <p class="blog-excerpt">Practical approaches to reduce shipping costs without compromising on delivery speed or quality for small to medium enterprises.</p>
+                                <a href="#" class="btn btn-sm">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-card-regular reveal">
+                            <div class="blog-image">
+                                <img src="/api/placeholder/400/300" alt="Supplier Relationships">
+                                <div class="blog-date">Feb 15, 2025</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-category">Partnerships</span>
+                                <h3 class="blog-title">Building Strong Supplier Relationships in Asian Markets</h3>
+                                <div class="blog-meta">
+                                    <span><i class="fas fa-user"></i> By Admin</span>
+                                    <span><i class="fas fa-comments"></i> 9 Comments</span>
+                                </div>
+                                <p class="blog-excerpt">Cultural insights and strategic approaches to cultivate long-lasting and mutually beneficial relationships with Asian suppliers.</p>
+                                <a href="#" class="btn btn-sm">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="blog-pagination">
+                        <a href="#" class="pagination-btn pagination-prev"><i class="fas fa-chevron-left"></i> Prev</a>
+                        <a href="#" class="pagination-btn active">1</a>
+                        <a href="#" class="pagination-btn">2</a>
+                        <a href="#" class="pagination-btn">3</a>
+                        <a href="#" class="pagination-btn pagination-next">Next <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Blog Sidebar -->
+                <div class="blog-sidebar">
+                    <!-- Search Box -->
+                    <div class="sidebar-box">
+                        <h3 class="sidebar-title">Search</h3>
+                        <form class="search-form">
+                            <input type="text" placeholder="Search articles..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="sidebar-box">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Supply Chain <span class="category-count">15</span></a></li>
+                            <li><a href="#">Manufacturing <span class="category-count">12</span></a></li>
+                            <li><a href="#">Quality Control <span class="category-count">9</span></a></li>
+                            <li><a href="#">Logistics <span class="category-count">8</span></a></li>
+                            <li><a href="#">Sustainability <span class="category-count">7</span></a></li>
+                            <li><a href="#">Partnerships <span class="category-count">6</span></a></li>
+                            <li><a href="#">Industry News <span class="category-count">5</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Recent Posts -->
+                    <div class="sidebar-box">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="recent-posts">
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="/api/placeholder/100/100" alt="Supply Chain Challenges">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4><a href="#">Navigating Supply Chain Challenges in 2025</a></h4>
+                                    <div class="recent-post-meta">March 15, 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="/api/placeholder/100/100" alt="Manufacturing Trends">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4><a href="#">Emerging Manufacturing Trends in Thailand</a></h4>
+                                    <div class="recent-post-meta">March 10, 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="/api/placeholder/100/100" alt="Quality Control">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4><a href="#">Quality Control Best Practices for Importers</a></h4>
+                                    <div class="recent-post-meta">March 5, 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Tags -->
+                    <div class="sidebar-box">
+                        <h3 class="sidebar-title">Popular Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">Sourcing</a>
+                            <a href="#" class="tag">Supply Chain</a>
+                            <a href="#" class="tag">Manufacturing</a>
+                            <a href="#" class="tag">Quality</a>
+                            <a href="#" class="tag">Thailand</a>
+                            <a href="#" class="tag">China</a>
+                            <a href="#" class="tag">Indonesia</a>
+                            <a href="#" class="tag">Logistics</a>
+                            <a href="#" class="tag">Sustainability</a>
+                            <a href="#" class="tag">Import</a>
+                            <a href="#" class="tag">Export</a>
+                            <a href="#" class="tag">Global Trade</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <div class="sidebar-box newsletter-sidebar">
+                        <h3 class="sidebar-title">Newsletter</h3>
+                        <p>Subscribe to our newsletter for the latest industry insights and sourcing tips.</p>
+                        <form>
+                            <input type="email" placeholder="Your Email Address" required>
+                            <button type="submit" class="btn btn-sm" style="width: 100%;">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Expert Sourcing Advice?</h2>
+                <p>Contact our team for personalized sourcing solutions tailored to your business needs.</p>
+                <a href="contact.html" class="btn btn-lg">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <div class="logo-text-container">
+                                <div class="logo-main">MD</div>
+                                <div class="logo-script">Shopping Assistant</div>
+                                <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                            </div>
+                        </div>
+                        <p>Your trusted sourcing partner, providing seamless procurement solutions from China, Thailand, and Indonesia. We connect businesses with quality manufacturers to help you grow globally.</p>
+                        
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                            <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                            <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                            <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4 class="footer-heading">Contact Us</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>57/30 Petchaburi Soi 17, Bangkok, Thailand</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+1234567890">+123-456-7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:hello@mdsourcing.com">hello@mdsourcing.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4 class="footer-heading">Newsletter</h4>
+                        <p>Subscribe to our newsletter for the latest industry insights and sourcing tips.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 MD Sourcing Company. All Rights Reserved. | Designed by <a href="#">MD Design</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Quote Form -->
+    <div class="quick-quote">
+        <button class="quick-quote-btn">
+            <i class="fas fa-file-invoice"></i> Request a Quote
+        </button>
+        <div class="quick-quote-form">
+            <h3>Quick Quote Request</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Product Details" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Additional Information" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Live Chat / WhatsApp -->
+    <div class="live-chat">
+        <a href="#" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials | MD Shopping Assistant</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    
+    <style>
+        /* Additional styles for testimonials page */
+        .testimonial-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-item {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            position: relative;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .featured-testimonial {
+            border: 2px solid var(--primary-rose-light);
+            background: linear-gradient(to bottom right, white, var(--primary-rose-light), white);
+            background-size: 200% 200%;
+            animation: shimmer 8s infinite;
+        }
+        
+        .testimonial-item .testimonial-icon {
+            top: 25px;
+            left: 25px;
+        }
+        
+        .testimonial-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 2rem;
+            align-items: center;
+        }
+        
+        .testimonial-rating {
+            color: var(--primary-rose);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-date {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+        
+        .video-testimonial {
+            margin-top: 5rem;
+            background-color: var(--color-background-alt);
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
+            position: relative;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--primary-rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--primary-mauve);
+        }
+        
+        .testimonial-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+        
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background-color: var(--primary-rose);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .pagination-prev,
+        .pagination-next {
+            width: auto;
+            padding: 0 1rem;
+            border-radius: var(--border-radius-full);
+        }
+        
+        .pagination-prev i,
+        .pagination-next i {
+            font-size: 0.8rem;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logo-text-container">
+                        <div class="logo-main">MD</div>
+                        <div class="logo-script">Shopping Assistant</div>
+                        <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="bg-element bg-element-1"></div>
+        <div class="container">
+            <div class="banner-content">
+                <div class="section-subtitle">Success Stories</div>
+                <h1>Client Testimonials</h1>
+                <p>Hear what our clients have to say about their experience working with us</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-main">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Client Feedback</div>
+                <h2>What Our Clients Say</h2>
+                <p>Real stories from businesses we've helped with their sourcing needs</p>
+            </div>
+            
+            <div class="testimonial-list">
+                <!-- Featured Testimonial -->
+                <div class="testimonial-item featured-testimonial reveal">
+                    <div class="testimonial-icon">"</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">MD Sourcing transformed our procurement process. They found us suppliers that offer exceptional quality at competitive prices, and their quality control service ensured that every product met our standards. Working with them has significantly improved our profit margins and allowed us to scale our business globally. Their team's dedication and expertise are truly impressive.</p>
+                        <div class="testimonial-meta">
+                            <div class="client-info">
+                                <div class="client-avatar">
+                                    <img src="/api/placeholder/100/100" alt="Sarah Johnson">
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>E-commerce Business Owner</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-date">March 15, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Testimonials -->
+                <div class="testimonial-item reveal">
+                    <div class="testimonial-icon">"</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">As a small business, navigating international sourcing seemed daunting until we partnered with MD Sourcing. Their team guided us through every step, from finding the right suppliers to managing logistics. Their attention to detail and responsive service made all the difference. They truly understand the challenges small businesses face and provide solutions that work within our budget and timeline constraints.</p>
+                        <div class="testimonial-meta">
+                            <div class="client-info">
+                                <div class="client-avatar">
+                                    <img src="/api/placeholder/100/100" alt="Michael Chen">
+                                </div>
+                                <div class="client-details">
+                                    <h4>Michael Chen</h4>
+                                    <p>Retail Store Manager</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-date">February 28, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item reveal">
+                    <div class="testimonial-icon">"</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">We've been working with MD Sourcing for over three years, and they've consistently delivered high-quality products on time and within budget. Their knowledge of Thai and Chinese manufacturers is invaluable, and their communication is always clear and prompt. The team goes above and beyond to ensure our satisfaction, even with last-minute changes or urgent requests. They're not just a sourcing partner; they're an extension of our team.</p>
+                        <div class="testimonial-meta">
+                            <div class="client-info">
+                                <div class="client-avatar">
+                                    <img src="/api/placeholder/100/100" alt="Jessica Williams">
+                                </div>
+                                <div class="client-details">
+                                    <h4>Jessica Williams</h4>
+                                    <p>Import Business Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-date">February 12, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item reveal">
+                    <div class="testimonial-icon">"</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">MD Sourcing helped us develop a custom product line that has become our best-selling category. They understood our vision and worked closely with manufacturers to bring it to life. Their quality control process ensured that every product met our exact specifications. We particularly appreciated their transparency throughout the process, keeping us informed at every stage and providing valuable insights to improve the final product.</p>
+                        <div class="testimonial-meta">
+                            <div class="client-info">
+                                <div class="client-avatar">
+                                    <img src="/api/placeholder/100/100" alt="David Rodriguez">
+                                </div>
+                                <div class="client-details">
+                                    <h4>David Rodriguez</h4>
+                                    <p>Product Development Manager</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-date">January 30, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item reveal">
+                    <div class="testimonial-icon">"</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">When we faced supply chain disruptions during the pandemic, MD Sourcing was instrumental in finding alternative suppliers and keeping our business running. Their extensive network and quick problem-solving abilities saved us from significant losses. The team showed exceptional resilience and creativity in addressing challenges, often providing solutions before we even identified the problems ourselves.</p>
+                        <div class="testimonial-meta">
+                            <div class="client-info">
+                                <div class="client-avatar">
+                                    <img src="/api/placeholder/100/100" alt="Emma Thompson">
+                                </div>
+                                <div class="client-details">
+                                    <h4>Emma Thompson</h4>
+                                    <p>Supply Chain Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-date">January 15, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="testimonial-pagination">
+                <a href="#" class="pagination-btn pagination-prev"><i class="fas fa-chevron-left"></i> Prev</a>
+                <a href="#" class="pagination-btn active">1</a>
+                <a href="#" class="pagination-btn">2</a>
+                <a href="#" class="pagination-btn">3</a>
+                <a href="#" class="pagination-btn pagination-next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonial -->
+    <section class="video-testimonial">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Client Spotlight</div>
+                <h2>Video Testimonials</h2>
+                <p>Hear directly from our clients about their experience working with MD Sourcing</p>
+            </div>
+            
+            <div class="video-wrapper reveal">
+                <img src="/api/placeholder/800/450" alt="Video Testimonial" class="video-placeholder">
+                <div class="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            
+            <div class="client-spotlight text-center">
+                <h3>Fashion Line Success Story</h3>
+                <p>Sarah Johnson from BeautyStyle discusses how MD Sourcing helped her launch a successful clothing line</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Client Success</div>
+                <h2>Case Studies</h2>
+                <p>Detailed stories of how we've helped businesses overcome sourcing challenges</p>
+            </div>
+            
+            <div class="case-studies-grid">
+                <div class="case-study-card reveal">
+                    <div class="case-study-image">
+                        <img src="/api/placeholder/600/400" alt="E-commerce Growth">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>E-commerce Business Growth</h3>
+                        <p>How we helped an online retailer scale their product line while maintaining quality and reducing costs</p>
+                        <a href="#" class="btn btn-sm">Read Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="case-study-card reveal delay-100">
+                    <div class="case-study-image">
+                        <img src="/api/placeholder/600/400" alt="Custom Product Development">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Custom Product Development</h3>
+                        <p>The journey from concept to market for a beauty brand's innovative skincare line</p>
+                        <a href="#" class="btn btn-sm">Read Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="case-study-card reveal delay-200">
+                    <div class="case-study-image">
+                        <img src="/api/placeholder/600/400" alt="Supply Chain Optimization">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Supply Chain Optimization</h3>
+                        <p>How we streamlined logistics and reduced lead times for a home goods manufacturer</p>
+                        <a href="#" class="btn btn-sm">Read Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Testimonial CTA -->
+    <section class="submit-testimonial">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Share Your Experience</h2>
+                <p>Are you a satisfied client? We'd love to hear about your experience working with MD Sourcing.</p>
+                <a href="contact.html" class="btn btn-lg">Submit Your Testimonial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <div class="logo-text-container">
+                                <div class="logo-main">MD</div>
+                                <div class="logo-script">Shopping Assistant</div>
+                                <div class="logo-tagline">THAILAND & CHINA SOURCING COMPANY</div>
+                            </div>
+                        </div>
+                        <p>Your trusted sourcing partner, providing seamless procurement solutions from China, Thailand, and Indonesia. We connect businesses with quality manufacturers to help you grow globally.</p>
+                        
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                            <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                            <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                            <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4 class="footer-heading">Contact Us</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>57/30 Petchaburi Soi 17, Bangkok, Thailand</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+1234567890">+123-456-7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:hello@mdsourcing.com">hello@mdsourcing.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4 class="footer-heading">Newsletter</h4>
+                        <p>Subscribe to our newsletter for the latest industry insights and sourcing tips.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 MD Sourcing Company. All Rights Reserved. | Designed by <a href="#">MD Design</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Quote Form -->
+    <div class="quick-quote">
+        <button class="quick-quote-btn">
+            <i class="fas fa-file-invoice"></i> Request a Quote
+        </button>
+        <div class="quick-quote-form">
+            <h3>Quick Quote Request</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Product Details" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Additional Information" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Live Chat / WhatsApp -->
+    <div class="live-chat">
+        <a href="#" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/forms.js"></script>
+</body>
+</html>
